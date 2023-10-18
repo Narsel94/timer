@@ -4,6 +4,7 @@ import clsx from "clsx";
 import classNames from "classnames";
 import Laps from "../laps/laps";
 import Counter from "../ui/counter/counter";
+import Button from "../ui/button/button";
 
 type TLaps = {
   min: number;
@@ -79,7 +80,9 @@ const Timer = () => {
         <Counter time={milisec / 10} />
       </div>
       <div className={styles.flexBlock}>
-        <button className={styles.button} onClick={startStopTimer}>{!timer ? "Start!" : "Stop!"} </button>
+        <Button htmlType="button" onClick={startStopTimer}>{!timer ? "Start!" : "Stop!"}</Button>
+        
+        <button className={styles.button} onClick={startStopTimer}>{!timer ? "Start!" : "Stop!"}</button>
 
         <button className={styles.button} onClick={reset}>Reset</button>
         <button className={styles.button} onClick={() => lap({ min: min, sec: sec, milisec: milisec })}>

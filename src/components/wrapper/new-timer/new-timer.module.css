@@ -1,0 +1,34 @@
+.timer {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;  
+  background: radial-gradient(circle, #5B7065 0%, #C9D1C8  100%);
+  min-height: 250px;
+  min-width: 250px;
+  padding: 10px;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 250px;
+  border-radius: .4em;
+  box-shadow: inset 0 0 18px 8px #04202C,  0 0 .5px 4px #04202C;
+  font-size: 26px;
+  gap: 20px;
+
+
+}
+/* rgba(91,112,101,1) */
+.flexRow {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.intervalsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
