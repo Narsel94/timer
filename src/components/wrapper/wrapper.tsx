@@ -61,11 +61,11 @@ const Timer = () => {
     setLaps((prevLaps) => prevLaps.concat(data));
   };
 
-  const width = (sec * 1.7);
+  const width = sec * 1.7;
 
   const style = {
-    "width": `${width}%`,
-    "transition": "1.5s"
+    width: `${width}%`,
+    transition: "1.5s",
   };
 
   return (
@@ -80,12 +80,21 @@ const Timer = () => {
         <Counter time={milisec / 10} />
       </div>
       <div className={styles.flexBlock}>
-        <Button htmlType="button" onClick={startStopTimer}>{!timer ? "Start!" : "Stop!"}</Button>
-        
-        <button className={styles.button} onClick={startStopTimer}>{!timer ? "Start!" : "Stop!"}</button>
+        <Button htmlType="button" onClick={startStopTimer}>
+          {!timer ? "Start!" : "Stop!"}
+        </Button>
 
-        <button className={styles.button} onClick={reset}>Reset</button>
-        <button className={styles.button} onClick={() => lap({ min: min, sec: sec, milisec: milisec })}>
+        <button className={styles.button} onClick={startStopTimer}>
+          {!timer ? "Start!" : "Stop!"}
+        </button>
+
+        <button className={styles.button} onClick={reset}>
+          Reset
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => lap({ min: min, sec: sec, milisec: milisec })}
+        >
           Lap
         </button>
       </div>

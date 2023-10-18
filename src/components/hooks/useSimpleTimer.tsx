@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 export type TLap = {
   hours: number;
@@ -7,40 +7,31 @@ export type TLap = {
   ms: number;
 };
 
-
 const useSimpleTimer = () => {
-  const [counte, setCounte] = useState<number>(0)
+  const [counte, setCounte] = useState<number>(0);
   const [isActive, setActive] = useState(false);
   const [laps, setLaps] = useState<TLap[]>([]);
-  
+
   useEffect(() => {
     const timerId = setInterval(() => {
-      setCounte((counte) => counte + 10)
-    }, 10)
+      setCounte((counte) => counte + 10);
+    }, 10);
     if (!isActive) {
       setTimeout(() => {
         clearInterval(timerId);
       }, 0);
-    } 
-    return () => clearInterval(timerId)
-  }, [isActive])
-  
+    }
+    return () => clearInterval(timerId);
+  }, [isActive]);
 
-  
   const startStopTimer = () => {
-    setActive(!isActive)
-  }
-  
+    setActive(!isActive);
+  };
+
   const addLap = () => {
     const lap = getTime();
     setLaps((laps) => laps.concat(lap));
   };
-
-
-
-  
-
-
 
   const getTime = (): TLap => {
     const hours = new Date(counte).getUTCHours();
@@ -56,21 +47,20 @@ const useSimpleTimer = () => {
   };
 
   const clearLaps = () => {
-    setLaps([])
-  }
+    setLaps([]);
+  };
 
-  
   const resetTimer = () => {
     setActive(false);
     setCounte(0);
-  }
+  };
 
-  const startTimer = () =>{
-    setActive(true)
-  }
-  const stopTimer = () =>{
-    setActive(false)
-  }
+  const startTimer = () => {
+    setActive(true);
+  };
+  const stopTimer = () => {
+    setActive(false);
+  };
 
   return {
     isActive,
@@ -81,8 +71,8 @@ const useSimpleTimer = () => {
     startStopTimer,
     resetTimer,
     addLap,
-    clearLaps
-  }
-}
+    clearLaps,
+  };
+};
 
-export default useSimpleTimer
+export default useSimpleTimer;

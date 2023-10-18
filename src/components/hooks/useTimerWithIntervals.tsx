@@ -14,22 +14,19 @@ export const useTimerWithIntervals = () => {
 
   const [pauseCounte, setPauseCounte] = useState<number>(0);
 
-  const [intervals, setIntervals] = useState([]);
-
-  const {isActive: isInterval, startStopTimer: startStopInterval, resetTimer: resetInterval, } = useSimpleTimer()
-
   useEffect(() => {
     const timerId = setInterval(() => {
       setCounte((counte) => counte + 10);
     }, 10);
-    if (!isActive ) {
-     
+    if (!isActive) {
       setTimeout(() => {
-        setPauseCounte(0)
+        setPauseCounte(0);
         clearInterval(timerId);
       }, 0);
     }
-    return () => {clearInterval(timerId)};
+    return () => {
+      clearInterval(timerId);
+    };
   }, [isActive]);
 
   const startStopTimer = useCallback(() => {

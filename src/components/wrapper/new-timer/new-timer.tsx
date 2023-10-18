@@ -5,17 +5,24 @@ import styles from "./new-timer.module.css";
 import TimeCounter from "../../ui/time-counter/time-counter";
 
 const TimerWithIntervals = () => {
-  const { startStopTimer, isActive, resetTimer, addLap, getTime, laps, pauseCounte } =
-    useTimerWithIntervals();
+  const {
+    startStopTimer,
+    isActive,
+    resetTimer,
+    addLap,
+    getTime,
+    laps,
+    pauseCounte,
+  } = useTimerWithIntervals();
   const { hours, minutes, sec, ms } = getTime();
 
   return (
     <div className={styles.timer}>
       <div className={styles.flexRow}>
         <TimeCounter time={hours} />
-        <TimeCounter time={minutes}/>
+        <TimeCounter time={minutes} />
         <TimeCounter time={sec} />
-        <TimeCounter time={ms}/>
+        <TimeCounter time={ms} />
       </div>
       <div className={styles.flexRow}>
         <Button htmlType="button" onClick={startStopTimer}>
@@ -29,8 +36,6 @@ const TimerWithIntervals = () => {
         </Button>
       </div>
       {/* {laps && laps.map(lap => <p>{lap.sec}</p>)} */}
-     
-     
     </div>
   );
 };

@@ -1,16 +1,15 @@
 .block {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 12px;
-  color: #C9D1C8;
+  color: #c9d1c8;
   padding: 2px;
-  border-radius: .4em;
-  letter-spacing: .8px;
-  transition: .3s;
+  border-radius: 0.4em;
+  letter-spacing: 0.8px;
+  transition: 0.3s;
   background-color: rgba(48, 64, 68, 0.507);
   box-shadow: 0 0 2px 1px rgba(48, 64, 68, 0.507);
 }
 
 .block:hover {
-  box-shadow: 0 0 2px 2px #C9D1C8, inset 0 0 2px 1px #C9D1C8;
-
+  box-shadow: 0 0 2px 2px #c9d1c8, inset 0 0 2px 1px #c9d1c8;
 }

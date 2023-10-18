@@ -1,10 +1,23 @@
-import React from 'react'
-import useSimpleTimer from './useSimpleTimer'
-
+import React from "react";
+import useSimpleTimer from "./useSimpleTimer";
 
 const useTimerWithIntervals2 = () => {
-  const {isActive, startStopTimer, resetTimer, getTime, startTimer, stopTimer} = useSimpleTimer()
-  const {resetTimer: resetIntevalTimer, addLap: addInerval, startTimer:startInterval, stopTimer:stopInterval, laps:intervals, clearLaps: clearIntervals} = useSimpleTimer()
+  const {
+    isActive,
+    startStopTimer,
+    resetTimer,
+    getTime,
+    startTimer,
+    stopTimer,
+  } = useSimpleTimer();
+  const {
+    resetTimer: resetIntevalTimer,
+    addLap: addInerval,
+    startTimer: startInterval,
+    stopTimer: stopInterval,
+    laps: intervals,
+    clearLaps: clearIntervals,
+  } = useSimpleTimer();
 
   const startStopTimerInterval = () => {
     if (!isActive) {
@@ -14,16 +27,15 @@ const useTimerWithIntervals2 = () => {
       stopInterval();
     } else {
       stopTimer();
-      startInterval()
+      startInterval();
     }
-  }
+  };
 
   const resetTimerInterval = () => {
     resetTimer();
     clearIntervals();
     resetIntevalTimer();
-  }
- 
+  };
 
   return {
     startStopTimerInterval,
@@ -31,8 +43,8 @@ const useTimerWithIntervals2 = () => {
     getTime,
     addInerval,
     isActive,
-    intervals
-  }
-}
+    intervals,
+  };
+};
 
-export default useTimerWithIntervals2
+export default useTimerWithIntervals2;

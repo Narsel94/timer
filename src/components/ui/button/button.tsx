@@ -1,5 +1,5 @@
 import React, { FC, SyntheticEvent } from "react";
-import styles from './button.module.css'
+import styles from "./button.module.css";
 
 interface IButton
   extends React.PropsWithChildren<React.HTMLProps<HTMLButtonElement>> {
@@ -8,7 +8,11 @@ interface IButton
 }
 
 const Button: FC<IButton> = ({ children, onClick, htmlType, ...rest }) => {
-  return <button type={htmlType} onClick={onClick} className={styles.button}>{children}</button>;
+  return (
+    <button type={htmlType} onClick={onClick} className={styles.button}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;

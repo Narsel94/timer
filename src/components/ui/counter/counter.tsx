@@ -1,14 +1,16 @@
-import React from 'react'
-import styles from './counter.module.css'
+import React from "react";
+import styles from "./counter.module.css";
 
 type TCounter = {
-  time: number
-}
+  time: number;
+};
 
-const Counter = ({time, ...rest}:TCounter) => {
+const Counter = ({ time, ...rest }: TCounter) => {
   return (
-    <div {...rest} className={styles.counter}>{time < 10? `0${time}`: time}</div>
-  )
-}
+    <div {...rest} className={styles.counter}>
+      {time < 10 ? `0${time}` : time}
+    </div>
+  );
+};
 
-export default Counter
+export default Counter;

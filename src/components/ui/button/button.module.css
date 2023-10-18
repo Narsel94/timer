@@ -1,33 +1,31 @@
 .button {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   line-height: 1;
   color: rgb(48, 64, 68);
-  border:2px solid #C9D1C8;
-  background-color: #C9D1C8;
+  border: 2px solid #c9d1c8;
+  background-color: #c9d1c8;
   cursor: pointer;
-  border-radius:  0.6em;
+  border-radius: 0.6em;
   width: 100%;
   max-width: 100px;
   transition: all 150ms ease-in-out;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   text-align: center;
   margin: 0 auto;
 }
 
 .button:hover {
   background-color: rgb(48, 64, 68);
-  box-shadow:  0 0 2px 0 #C9D1C8 inset, 0 0 4px 2px #C9D1C8;
-  color: #C9D1C8;
+  box-shadow: 0 0 2px 0 #c9d1c8 inset, 0 0 4px 2px #c9d1c8;
+  color: #c9d1c8;
 }
 
 .button:focus {
   outline: none;
-  box-shadow:  0 0 2px 0 #C9D1C8 inset, 0 0 4px 2px #C9D1C8;
-
+  box-shadow: 0 0 2px 0 #c9d1c8 inset, 0 0 4px 2px #c9d1c8;
 }
-
 
 /* .button:active {
   background-color: #5B7065;
@@ -35,4 +33,3 @@
   color: #C9D1C8;
   outline: none;
 } */
-

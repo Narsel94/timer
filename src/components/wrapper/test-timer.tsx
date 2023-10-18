@@ -29,16 +29,16 @@ const Timer2 = () => {
         </button>
       </div>
       <ul className={styles.lapsList}>
-      {laps.length > 0 &&
-        laps.map((lap, index) => (
-          <Laps
-            key={index}
-            counte={index + 1}
-            minutes={lap.min}
-            sec={lap.sec}
-            milisec={lap.ms}
-          ></Laps>
-        ))}
+        {laps.length > 0 &&
+          laps.map((lap, index) => (
+            <Laps
+              key={index}
+              counte={index + 1}
+              minutes={lap.min}
+              sec={lap.sec}
+              milisec={lap.ms}
+            ></Laps>
+          ))}
       </ul>
     </div>
   );
