@@ -9,14 +9,10 @@ import TimerIntervals from "./components/wrapper/new-timer/timer-interval";
 
 function App() {
   return (
-    <>
-      
-{/*       
-      <Timer></Timer>
-      <Timer2 /> */}
+ 
       <TimerIntervals/>
-      <TimerWithIntervals/>
-    </>
+      // <TimerWithIntervals/>
+ 
   );
 }
 
