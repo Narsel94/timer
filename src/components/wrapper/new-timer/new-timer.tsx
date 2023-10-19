@@ -11,7 +11,6 @@ const TimerWithIntervals = () => {
     resetTimer,
     addLap,
     getTime,
-    laps,
   } = useTimerWithIntervals();
   const { hours, minutes, sec, ms } = getTime();
   return (
