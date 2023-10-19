@@ -12,7 +12,6 @@ export const useTimerWithIntervals = () => {
   const [laps, setLaps] = useState<TLap[]>([]);
   const [isActive, setActive] = useState(false);
 
-  const [pauseCounte, setPauseCounte] = useState<number>(0);
 
   useEffect(() => {
     const timerId = setInterval(() => {
@@ -20,7 +19,6 @@ export const useTimerWithIntervals = () => {
     }, 10);
     if (!isActive) {
       setTimeout(() => {
-        setPauseCounte(0);
         clearInterval(timerId);
       }, 0);
     }
@@ -59,7 +57,6 @@ export const useTimerWithIntervals = () => {
 
   return {
     startStopTimer,
-    pauseCounte,
     getTime,
     resetTimer,
     addLap,

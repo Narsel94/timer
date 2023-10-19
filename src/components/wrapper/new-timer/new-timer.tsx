@@ -12,10 +12,8 @@ const TimerWithIntervals = () => {
     addLap,
     getTime,
     laps,
-    pauseCounte,
   } = useTimerWithIntervals();
   const { hours, minutes, sec, ms } = getTime();
-
   return (
     <div className={styles.timer}>
       <div className={styles.flexRow}>
@@ -35,7 +33,6 @@ const TimerWithIntervals = () => {
           Laps
         </Button>
       </div>
-      {/* {laps && laps.map(lap => <p>{lap.sec}</p>)} */}
     </div>
   );
 };

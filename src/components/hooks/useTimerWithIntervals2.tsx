@@ -4,9 +4,11 @@ import useSimpleTimer from "./useSimpleTimer";
 const useTimerWithIntervals2 = () => {
   const {
     isActive,
+    hours,
+    minutes,
+    seconds,
     startStopTimer,
     resetTimer,
-    getTime,
     startTimer,
     stopTimer,
   } = useSimpleTimer();
@@ -21,12 +23,13 @@ const useTimerWithIntervals2 = () => {
 
   const startStopTimerInterval = () => {
     if (!isActive) {
-      addInerval();
       resetIntevalTimer();
+      addInerval();
       startTimer();
       stopInterval();
     } else {
       stopTimer();
+
       startInterval();
     }
   };
@@ -40,10 +43,12 @@ const useTimerWithIntervals2 = () => {
   return {
     startStopTimerInterval,
     resetTimerInterval,
-    getTime,
     addInerval,
     isActive,
     intervals,
+    hours,
+    minutes,
+    seconds,
   };
 };
 

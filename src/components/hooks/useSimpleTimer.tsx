@@ -4,46 +4,50 @@ export type TLap = {
   hours: number;
   minutes: number;
   sec: number;
-  ms: number;
 };
 
 const useSimpleTimer = () => {
-  const [counte, setCounte] = useState<number>(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
   const [isActive, setActive] = useState(false);
   const [laps, setLaps] = useState<TLap[]>([]);
 
   useEffect(() => {
-    const timerId = setInterval(() => {
-      setCounte((counte) => counte + 10);
-    }, 10);
+    const timer = setInterval(() => {
+      setSeconds((seconds) => seconds + 1);
+
+      if (seconds === 59) {
+        setSeconds(0);
+        setMinutes((minutes) => minutes + 1);
+
+        if (minutes === 59) {
+          setMinutes(0);
+          setHours((hours) => hours + 1);
+        }
+      }
+    }, 1000);
     if (!isActive) {
       setTimeout(() => {
-        clearInterval(timerId);
+        clearInterval(timer);
       }, 0);
     }
-    return () => clearInterval(timerId);
-  }, [isActive]);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [seconds, minutes, hours, isActive]);
 
   const startStopTimer = () => {
     setActive(!isActive);
   };
 
   const addLap = () => {
-    const lap = getTime();
-    setLaps((laps) => laps.concat(lap));
-  };
-
-  const getTime = (): TLap => {
-    const hours = new Date(counte).getUTCHours();
-    const minutes = new Date(counte).getMinutes();
-    const sec = new Date(counte).getSeconds();
-    const ms = new Date(counte).getMilliseconds();
-    return {
+    const lap: TLap = {
       hours: hours,
       minutes: minutes,
-      sec: sec,
-      ms: ms,
+      sec: seconds,
     };
+    setLaps((laps) => laps.concat(lap));
   };
 
   const clearLaps = () => {
@@ -52,22 +56,27 @@ const useSimpleTimer = () => {
 
   const resetTimer = () => {
     setActive(false);
-    setCounte(0);
+    setHours(0);
+    setSeconds(0);
+    setMinutes(0);
   };
 
   const startTimer = () => {
     setActive(true);
   };
+
   const stopTimer = () => {
     setActive(false);
   };
 
   return {
+    hours,
+    minutes,
+    seconds,
     isActive,
     laps,
     startTimer,
     stopTimer,
-    getTime,
     startStopTimer,
     resetTimer,
     addLap,

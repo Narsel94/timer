@@ -1,4 +1,4 @@
-import React, { useEffect, useId } from "react";
+import React, { useEffect } from "react";
 import useTimerWithIntervals2 from "../../hooks/useTimerWithIntervals2";
 import Button from "../../ui/button/button";
 import styles from "./new-timer.module.css";
@@ -7,25 +7,26 @@ import TimeBlock from "../../ui/time-block/time-block";
 
 const TimerIntervals = () => {
   const {
-    getTime,
+    hours,
+    minutes,
+    seconds,
     startStopTimerInterval,
     resetTimerInterval,
+    addInerval,
     isActive,
     intervals,
   } = useTimerWithIntervals2();
-  const { hours, minutes, sec, ms } = getTime();
 
   useEffect(() => {
-    document.title = `${hours} : ${minutes} : ${sec}`;
-  }, [hours, minutes, sec]);
+    document.title = `${hours} : ${minutes} : ${seconds}`;
+  }, [hours, minutes, seconds]);
 
   return (
     <div className={styles.timer}>
       <div className={styles.flexRow}>
         <TimeCounter time={hours} />
         <TimeCounter time={minutes} />
-        <TimeCounter time={sec} />
-        <TimeCounter time={ms} />
+        <TimeCounter time={seconds} />
       </div>
       <div className={styles.flexRow}>
         <Button htmlType="button" onClick={startStopTimerInterval}>
@@ -37,7 +38,11 @@ const TimerIntervals = () => {
       </div>
       <div className={styles.intervalsBlock}>
         {intervals &&
-          intervals.slice(1).map((interval) => <TimeBlock time={interval} />)}
+          intervals
+            .slice(1)
+            .map((interval, index) => (
+              <TimeBlock key={index} time={interval} />
+            ))}
       </div>
     </div>
   );
